@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { createPortal } from "react-dom";
+import Particles from "react-particles-js";
 import { PageContainer } from "../../components/shared/ui";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -12,7 +12,10 @@ const Artworks = () => {
   const [modalName, setModalName] = useState("");
   const [modalToggle, setModalToggle] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
-  const environmentalImages = useMemo(() => ["e01.jpeg", "e02.jpeg", "e03.jpeg", "e04.jpeg", "e05.jpeg"], []);
+  const environmentalImages = useMemo(
+    () => ["e01.jpeg", "e02.jpeg", "e03.jpeg", "e04.jpeg", "e05.jpeg"],
+    []
+  );
   const conceptImages = useMemo(
     () => ["p01.jpeg", "p02.jpeg", "p03.jpeg", "p04.jpeg", "p05.jpeg"],
     []
@@ -36,6 +39,19 @@ const Artworks = () => {
 
   return (
     <>
+	    <Particles
+		    params={{
+			    particles: {
+				    number: {
+					    value: 200,
+					    density: {
+						    enable: true,
+						    value_area: 1000,
+					    }
+				    },
+			    },
+		    }}
+	    />
       <div>
         <Header />
         <PageContainer>
