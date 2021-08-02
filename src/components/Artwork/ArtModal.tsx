@@ -41,6 +41,7 @@ const ArtModal = ({ name, images, index, onCloseModal }: ArtModalProps) => {
           <Carousel
             showArrows={true}
             selectedItem={index}
+            // centerMode={true}
           >
             {artworks}
           </Carousel>

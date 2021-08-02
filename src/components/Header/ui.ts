@@ -9,32 +9,39 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderTitle = styled.div`
-  font-size: 22px;
-  line-height: 32px;
-  letter-spacing: 8px;
-  color: red;
-  top: -48px;
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
   position: relative;
-`;
-
-export const HeaderSvgRect = styled.rect`
-  stroke-dasharray: 140 540;
-  stroke-dashoffset: -474;
-  stroke-width: 8px;
-  fill: transparent;
-  stroke: #fff;
-  border-bottom: 5px solid #fff;
-  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
-`;
-
-export const HeaderSvgWrapper = styled.div`
-  position: relative;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  max-width: 250px;
   margin: 0 auto;
-  width: 320px;
-  
-  &:hover ${HeaderSvgRect} {
-    stroke-width: 2px;
-    stroke-dashoffset: 0;
-    stroke-dasharray: 760;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 2px solid #fff;
+    transition: transform 0.2s;
+  }
+
+  &::after {
+    transform: translate(3px, 3px);
+  }
+
+  &::before {
+    transform: translate(-3px, -3px);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    transform: translate(0);
   }
 `;

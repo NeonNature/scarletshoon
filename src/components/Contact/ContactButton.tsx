@@ -16,7 +16,7 @@ const ContactButton = ({ icon, color, link }: ContactButtonProps) => {
     [link]
   );
   return (
-    <ContactButtonContainer onClick={onNavigate}>
+    <ContactButtonContainer color={color} onClick={onNavigate}>
       <FontAwesomeIcon icon={icon} />
       <GlowWrap>
         <Glow />

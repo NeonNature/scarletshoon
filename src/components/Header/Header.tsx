@@ -1,14 +1,15 @@
-import React, { useCallback, useMemo, useState } from "react";
-import {
-  HeaderContainer,
-  HeaderTitle,
-  HeaderSvgWrapper,
-  HeaderSvgRect,
-} from "./ui";
+import React, { useCallback, useState } from "react";
+import { HeaderContainer, HeaderTitle } from "./ui";
 import MenuToggle from "../Menubar/MenuToggle";
 import Menubar from "../Menubar/Menubar";
 
-const Header = () => {
+type HeaderProps = {
+  onClickContact: () => void;
+  onClickAbout: () => void;
+  onClickCommission: () => void;
+  onClickArt: () => void;
+};
+const Header = ({ onClickContact, onClickAbout, onClickArt, onClickCommission }: HeaderProps) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const onSetToggleMenu = useCallback(
@@ -17,14 +18,15 @@ const Header = () => {
   );
   return (
     <HeaderContainer>
-      {/*<HeaderSvgWrapper>*/}
-        {/*<svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">*/}
-        {/*  <HeaderSvgRect height="60" width="320" />*/}
-          <HeaderTitle>Scarlet Shoon</HeaderTitle>
-        {/*</svg>*/}
-      {/*</HeaderSvgWrapper>*/}
+      <HeaderTitle>Scarlet Shoon</HeaderTitle>
       <MenuToggle toggleMenu={toggleMenu} setToggleMenu={onSetToggleMenu} />
-      <Menubar toggleMenu={toggleMenu} />
+      <Menubar
+        toggleMenu={toggleMenu}
+        onClickContact={onClickContact}
+        onClickAbout={onClickAbout}
+        onClickCommission={onClickCommission}
+        onClickArt={onClickArt}
+      />
     </HeaderContainer>
   );
 };

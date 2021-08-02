@@ -6,23 +6,37 @@ import { MenubarContainer, MenubarList, MenuList } from "./ui";
 
 type MenubarProps = {
   toggleMenu: boolean;
+  onClickContact: () => void;
+  onClickAbout: () => void;
+  onClickArt: () => void;
+  onClickCommission: () => void;
 };
 
-const Menubar = ({ toggleMenu }: MenubarProps) => {
+const Menubar = ({
+  toggleMenu,
+  onClickContact,
+  onClickAbout,
+  onClickArt,
+  onClickCommission,
+}: MenubarProps) => {
   const history = useHistory();
   const onNavigate = useCallback((route) => history.push(route), [history]);
   return (
     <MenubarContainer toggleMenu={toggleMenu}>
-      <MenubarList onClick={() => onNavigate("/")}>
+      <MenubarList onClick={onClickArt}>
         <MenuList>Artworks</MenuList>{" "}
       </MenubarList>
-      <MenubarList onClick={() => onNavigate("/commission")}>
+      <MenubarList onClick={onClickCommission}>
         {" "}
         <MenuList>Commission</MenuList>{" "}
       </MenubarList>
-      <MenubarList onClick={() => onNavigate("/About")}>
+      <MenubarList onClick={onClickAbout}>
         {" "}
         <MenuList>About</MenuList>{" "}
+      </MenubarList>
+      <MenubarList onClick={onClickContact}>
+        {" "}
+        <MenuList>Contact</MenuList>{" "}
       </MenubarList>
     </MenubarContainer>
   );
